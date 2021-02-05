@@ -34,7 +34,7 @@ def new_topic(request):
         form = TopicForm()
     else:
         # POST data submitted; process data.
-        form = TopicForm(request.POST)
+        form = TopicForm(data=request.POST)
         if form.is_valid():
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
